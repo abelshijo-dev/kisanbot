@@ -164,4 +164,9 @@ service cloud.firestore {
 - **Offline mode**: Cache recent diagnoses in localStorage for areas with poor connectivity
 - **SMS alerts**: Use Twilio to send outbreak alerts to farmers in affected districts
 - **Weather integration**: Pull weather data (rainfall, humidity) and include it in the Gemini prompt for more accurate seasonal advice
+
+
+
+
+
 PROJECT CREATED BY ABEL SHIJO
