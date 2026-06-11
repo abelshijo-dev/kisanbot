@@ -460,3 +460,96 @@ h1, h2, h3 { font-family: 'Syne', sans-serif; line-height: 1.2; }
   0%, 100% { box-shadow: 0 0 0 0 rgba(74,124,78,0.4); }
   50%       { box-shadow: 0 0 0 6px rgba(74,124,78,0); }
 }
+
+/* Action buttons row */
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.action-btn {
+  padding: 13px;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  transition: opacity 0.2s;
+}
+.action-btn:hover { opacity: 0.85; }
+.save-btn {
+  background: var(--leaf);
+  color: white;
+}
+.whatsapp-btn {
+  background: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Saved toggle button */
+.saved-toggle {
+  margin-top: 14px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(44,26,14,0.15);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--bark);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.saved-toggle:hover { background: var(--mist); }
+
+@media (max-width: 480px) {
+  .action-row { grid-template-columns: 1fr; }
+}
+
+/* Weather widget */
+.weather-widget {
+  background: linear-gradient(135deg, #EBF4FB 0%, #F5F0E8 100%);
+  border: 1.5px solid rgba(107,163,190,0.3);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+.weather-loading {
+  font-size: 13px;
+  color: var(--bark);
+}
+.weather-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #4a7a9b;
+  margin-bottom: 8px;
+}
+.weather-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.weather-stats span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--soil);
+  background: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(107,163,190,0.2);
+}
+.weather-note {
+  font-size: 11px;
+  color: #4a7a9b;
+  font-style: italic;
+}

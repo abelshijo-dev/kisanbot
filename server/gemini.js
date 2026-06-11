@@ -1,20 +1,28 @@
 import axios from 'axios';
 
-export async function diagnoseCrop({ description, crop, district, season, language, imageBase64, imageMimeType }) {
+export async function diagnoseCrop({ description, crop, district, season, language, imageBase64, imageMimeType, weather })  {
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
   const prompt = `
 Crop: ${crop}
 Region: ${district || "Kerala"}
 Season: ${season || "Current"}
 Symptoms: ${description || "See image"}
+${weather ? `
+Current weather in ${district}:
+- Temperature: ${weather.temperature}°C
+- Humidity: ${weather.humidity}%
+- Recent rainfall: ${weather.precipitation}mm
+- Condition: ${weather.condition}
+Use this to improve diagnosis. High humidity increases fungal disease risk.` : ''}
 
 Return ONLY valid JSON with:
-issue, cause, severity, treatment, local_remedy, prevention, see_expert_if, translated_summary.
+issue, cause, severity, treatment, local_remedy, prevention, see_expert_if, translated_summary, weather_warning.
 
 Rules:
 - issue: short phrase
 - cause: 1 sentence
 - severity: low, medium, or high
+- weather_warning: 1 sentence if weather is worsening the problem, else empty string ""
 - treatment: 3 short steps
 - local_remedy: 1 sentence
 - prevention: 1 sentence

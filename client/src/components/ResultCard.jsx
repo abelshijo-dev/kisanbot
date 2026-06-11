@@ -33,7 +33,7 @@ export default function ResultCard({ result, crop, onReset }) {
   const {
     issue, cause, severity = 'low',
     treatment = [], local_remedy, prevention,
-    see_expert_if, translated_summary,
+    see_expert_if, translated_summary, weather_warning,
   } = result;
 
   function handleSave() {
@@ -83,6 +83,17 @@ export default function ResultCard({ result, crop, onReset }) {
       </div>
 
       {/* See expert if */}
+      {weather_warning && (
+        <div style={{
+          background: '#EBF4FB', border: '1.5px solid rgba(107,163,190,0.4)',
+          borderRadius: 10, padding: '14px 16px', marginBottom: 14,
+          fontSize: 14, color: '#2c5f7a', display: 'flex', gap: 10, alignItems: 'flex-start'
+        }}>
+          <span style={{ fontSize: 18 }}>🌦️</span>
+          <span><strong>Weather alert: </strong>{weather_warning}</span>
+        </div>
+      )}
+
       {see_expert_if && (
         <div style={{
           background: '#FDF3E3', border: '1.5px solid rgba(192,123,42,0.25)',
